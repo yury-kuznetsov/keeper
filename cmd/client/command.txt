@@ -1,0 +1,31 @@
+Сборка клиента с флагами
+go build -ldflags "-X main.Version=1.0.0 -X main.BuildDate=2024-04-18"
+
+Примеры команд
+
+Авторизация
+./client register -u user@email.com -p 12345678
+./client login -u user@email.com -p 12345678
+
+Добавление записей
+./client create credentials -l administrator -p password
+./client create text -t "My private text"
+./client create binary -b "SGVsbG8sIHdvcmxkIQ=="
+./client create card -n 1234123412341234 -o "Name Surname" -c 000
+
+Список записей
+./client list
+
+Обновление записей
+./client update credentials -i 44e221ed-ceee-4cca-b4bc-431512f7b8ee -l administrator -p password
+./client update text -i 4ad45bb6-feaa-494d-9c00-163bc8a36bc1 -t "New text"
+./client update binary -i eb9a7864-d81e-4599-b9a2-0dba6e4e4b0c -b "111SGVsbG8sIHdvcmxkIQ=="
+./client update card -i b1253183-f7c0-4020-9ab2-cc2fb3b798ac -n 4321432143214321 -o "Ivan Ivanov" -c 123
+
+Обновление записей
+./client remove -i eb9a7864-d81e-4599-b9a2-0dba6e4e4b0c
+
+Синхронизация с сервером
+./client status
+./client push -i 44e221ed-ceee-4cca-b4bc-431512f7b8ee
+./client pull -i 44e221ed-ceee-4cca-b4bc-431512f7b8ee
